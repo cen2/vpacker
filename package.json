@@ -1,0 +1,19 @@
+{
+  "name": "vpacker",
+  "version": "1.0.0",
+  "description": "Common plug-ins for integrated webpack are used to build html5 templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cen2/vpacker.git"
+  },
+  "author": "ouyangcheng <1878691337@qq.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cen2/vpacker/issues"
+  },
+  "homepage": "https://github.com/cen2/vpacker#readme"
+}
