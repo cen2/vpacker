@@ -17,6 +17,11 @@
     "url": "https://github.com/cen2/vpacker/issues"
   },
   "homepage": "https://github.com/cen2/vpacker#readme",
+  "dependencies": {
+    "better-scroll": "^1.12.6",
+    "video.js": "^7.1.0",
+    "vue": "^2.5.17"
+  },
   "devDependencies": {
     "autoprefixer": "^9.1.1",
     "babel-core": "^6.26.3",
@@ -57,8 +62,5 @@
     "> 1%",
     "last 10 versions",
     "not ie <= 8"
-  ],
-  "dependencies": {
-    "vue": "^2.5.17"
-  }
+  ]
 }
