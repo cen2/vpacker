@@ -56,10 +56,10 @@ const webpackConfig = {
     alias: {
       'vue': 'vue/dist/vue.js'
     },
-    extensions: ['.js', '.vue', '.json']
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.vue', '.json']
   },
   entry: {
-    [config.module]: `./src/views/${config.module}/index.js`
+    [config.module]: `./src/apps/${config.module}/index.js`
   },
   output: {
     filename: `./js/[name].[hash].js`,
@@ -69,7 +69,7 @@ const webpackConfig = {
     ...generatePluginsByMode(),
     new HtmlWebpackPlugin({
       filename: `./index.html`,
-      template: `./src/views/${config.module}/index.html`
+      template: `./src/apps/${config.module}/index.html`
     }),
     new ExtractTextPlugin('./css/[name].[hash].css'),
     new VueLoaderPlugin(),
@@ -84,7 +84,7 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.(js|vue)$/,
+        test: /\.(js|jsx|tsx|vue)$/,
         use: 'eslint-loader',
         enforce: 'pre'
       },
@@ -93,7 +93,11 @@ const webpackConfig = {
         loader: 'vue-loader'
       },
       {
-        test: /\.js$/,
+        test: /\.(ts|tsx)$/,
+        use: ['ts-loader']
+      },
+      {
+        test: /\.(js|jsx)$/,
         use: ['babel-loader']
       },
       {
@@ -145,6 +149,10 @@ const webpackConfig = {
             }
           }
         ]
+      },
+      {
+        test: /\.proto$/,
+        loader: 'protobuf-loader'
       }
     ]
   }
@@ -155,7 +163,7 @@ module.exports = new Promise((resolve, reject) => {
     if (err) {
       reject(err)
     } else {
-      !webpackConfig.devServer.port && (webpackConfig.devServer.port = port)
+      webpackConfig.devServer.port || (webpackConfig.devServer.port = port)
 
       console.log(chalk.green('  Build mode : ' + process.env.NODE_ENV + '.\n'))
 

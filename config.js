@@ -1,8 +1,8 @@
 module.exports = {
   minimize: true,
   proxy: {
-    '/github': 'https://api.github.com'
+    '/test': 'wss://test.wss.app.91vv.com'
   },
-  proxyServer: process.env.npm_config_proxy || '/github',
-  module: process.env.npm_config_module || 'vlive'
+  proxyServer: process.env.npm_config_proxy || '/test',
+  module: process.env.npm_config_module || ''
 }
